@@ -1,0 +1,522 @@
+:root {
+  /* پالت رنگی جدید (سبک الانزا - روشن) */
+  --bg-body: #f5f7fa;        /* پس‌زمینه کلی صفحه (طوسی خیلی روشن) */
+  --bg-card: #ffffff;        /* پس‌زمینه کارت‌ها (سفید مطلق) */
+  --text-primary: #2d2d2d;   /* متن اصلی (مشکی تیره) */
+  --text-secondary: #757575; /* متن فرعی (طوسی) */
+  --border-color: #e0e0e0;   /* رنگ خطوط مرزی */
+  
+  /* رنگ‌های اصلی */
+  --accent-primary: #ef394e; /* صورتی/قرمز متمایل به الانزا */
+  --accent-hover: #d62f42;
+  --accent-secondary: #00bf6f; /* سبز برای تخفیف‌ها */
+  --gold: #f4b400;           /* رنگ ستاره‌ها */
+  
+  /* سایه‌ها و انحناها */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  direction: rtl;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* --- Header --- */
+header {
+  background-color: var(--bg-card);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* سایه بسیار نرم */
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--accent-primary);
+}
+
+.search-bar {
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 14px 50px 14px 20px;
+  border: 1px solid #f0f0f0;
+  border-radius: var(--radius-xl);
+  background-color: #f5f7fa; /* پس‌زمینه سرچ طوسی روشن */
+  color: var(--text-primary);
+  font-family: 'Vazirmatn', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.search-bar input:focus {
+  background-color: #fff;
+  border-color: var(--border-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  outline: none;
+}
+
+/* آیکون جستجو (افزودن با CSS کاذب) */
+.search-bar::before {
+  content: "🔍";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+.header-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.icon-btn {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%; /* دکمه‌های گرد */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 20px;
+}
+
+.icon-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background-color: #fff5f7;
+}
+
+.cart-badge {
+  background-color: var(--accent-primary);
+  border: 2px solid #fff;
+  width: 20px;
+  height: 20px;
+  top: -2px;
+  right: -2px;
+  left: auto;
+  font-size: 10px;
+}
+
+/* --- Hero Section --- */
+.hero-banner {
+  margin-top: 25px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  height: 450px; /* کمی کوتاه‌تر برای مدرن‌تر شدن */
+}
+
+/* گرادینت‌های ملایم‌تر و روشن‌تر */
+.hero-slide-1 { background: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%); }
+.hero-slide-2 { background: linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%); }
+.hero-slide-3 { background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); }
+
+.hero-content h1 {
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-weight: 800;
+}
+
+.hero-content p {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.hero-btn {
+  background-color: #fff;
+  color: var(--text-primary);
+  border-radius: var(--radius-xl);
+  padding: 12px 35px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.hero-btn:hover {
+  background-color: var(--text-primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* --- Categories (Circles Style like Elanza) --- */
+.category-card {
+  background-color: transparent; /* حذف پس‌زمینه کارت */
+  border: none;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  border: none;
+}
+
+.category-icon {
+  background-color: #fff;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* دایره‌ای */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-size: 32px;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.category-card:hover .category-icon {
+  border-color: var(--accent-primary);
+  box-shadow: 0 4px 12px rgba(239, 57, 78, 0.2);
+}
+
+.category-name {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* --- Product Cards (The Elanza Look) --- */
+.section-title {
+  color: var(--text-primary);
+  font-size: 24px;
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+}
+
+/* خط زیر عنوان */
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-primary);
+  border-radius: 10px;
+}
+
+.products-carousel {
+  padding: 20px 5px; /* فضا برای سایه‌ها */
+}
+
+.product-card {
+  background-color: var(--bg-card);
+  border: 1px solid #f0f0f0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: none; /* در حالت عادی بدون سایه برای تمیزی */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+.product-image {
+  background-color: #fff;
+  height: 240px;
+  padding: 20px; /* فاصله عکس از لبه‌ها */
+}
+
+.product-image img {
+  object-fit: contain; /* عکس کامل دیده شود */
+  transition: transform 0.3s;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.discount-badge {
+  background-color: var(--accent-primary);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  top: 12px;
+  right: 12px;
+}
+
+.product-info {
+  padding: 15px;
+  text-align: right; /* راست‌چین کردن متن‌ها */
+}
+
+.product-brand {
+  color: var(--text-secondary);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-name {
+  color: var(--text-primary);
+  font-size: 14px;
+  height: 42px; /* ارتفاع ثابت برای دو خط */
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.product-price {
+  justify-content: flex-end; /* قیمت سمت چپ */
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.current-price {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.current-price::after {
+  content: ' تومان';
+  font-size: 11px;
+  font-weight: 400;
+  margin-right: 3px;
+  color: var(--text-secondary);
+}
+
+.original-price {
+  color: #bbb;
+  font-size: 13px;
+}
+
+.add-to-cart-btn {
+  background-color: #fff;
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  font-size: 13px;
+  transition: all 0.3s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: var(--accent-primary);
+  color: #fff;
+}
+
+/* --- Navigation Buttons for Carousel --- */
+.carousel-btn {
+  background-color: #fff;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+.carousel-btn:hover {
+  background-color: var(--accent-primary);
+  color: #fff;
+}
+
+/* --- Filter Sidebar (Category Page) --- */
+.filters-sidebar {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-title {
+  color: var(--text-primary);
+  border-bottom-color: #f0f0f0;
+}
+
+.filter-option label {
+  color: var(--text-secondary);
+}
+
+.price-inputs input {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: var(--text-primary);
+}
+
+.sort-select {
+  background-color: #fff;
+  color: var(--text-primary);
+  border: 1px solid #ddd;
+}
+
+/* --- Product Detail --- */
+.main-image {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  box-shadow: none;
+}
+
+.thumbnail {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+}
+
+.thumbnail.active {
+  border-color: var(--accent-primary);
+}
+
+.product-detail-title {
+  color: var(--text-primary);
+}
+
+.product-detail-price {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: var(--radius-md);
+}
+
+.detail-current-price {
+  color: var(--accent-primary);
+}
+
+.quantity-btn {
+  background-color: #fff;
+  color: var(--text-primary);
+  border-color: #ddd;
+}
+
+.detail-add-to-cart {
+  background-color: var(--accent-primary);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 15px rgba(239, 57, 78, 0.3);
+}
+
+.description-text {
+  color: var(--text-secondary);
+}
+
+.review-item {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+}
+
+/* --- Cart & Profile --- */
+.cart-items, .cart-summary, .profile-sidebar, .profile-main {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.cart-item {
+  border-bottom-color: #f0f0f0;
+}
+
+.cart-item-name {
+  color: var(--text-primary);
+}
+
+.cart-item-image {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+}
+
+.profile-menu li:hover, .profile-menu li.active {
+  background-color: #fff5f7; /* صورتی خیلی روشن */
+  color: var(--accent-primary);
+}
+
+.order-item {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+}
+
+.form-control {
+  background-color: #fff;
+  border-color: #ddd;
+  color: var(--text-primary);
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #212121; /* فوتر تیره برای کنتراست بهتر استاندارد است */
+  color: #fff;
+  margin-top: 100px;
+  padding-top: 60px;
+}
+
+.footer-section h3 {
+  color: #fff;
+}
+
+.footer-section a:hover {
+  color: var(--accent-primary);
+}
+
+.social-icon {
+  background-color: #333;
+}
+
+/* --- Mobile Nav --- */
+.mobile-footer-nav {
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.mobile-nav-item {
+  color: #999;
+}
+
+.mobile-nav-item.active {
+  color: var(--accent-primary);
+}
+
+/* Helpers */
+.hidden { display: none; }
